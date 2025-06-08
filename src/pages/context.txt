@@ -1,0 +1,8 @@
+It must be under the umbrella of the DS4H ICTU research group. There many other projects beside the translation App that will be presented on the website too.
+
+
+The scarcity of African low-resource languages refers to the limited availability of digital resources and data—such as text corpora, speech datasets, annotated training data, or linguistic tools—for many African languages, particularly in the context of NLP and machine learning.
+
+
+% SUPPORTED LANGUAGES : Ghomala, Bafia, Bulu, Fulfulde (fulfulde dc and fulfulde adamoua), Kapsiki, Tupurri, Igbo, Swahili, Hausa
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Translation Results - Translation System</title>
+    <link rel="stylesheet" href="results.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="nav-left">
+          <button class="menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="nav-right">
+          <button class="history-btn"><i class="fas fa-history"></i></button>
+          <button class="settings-btn"><i class="fas fa-cog"></i></button>
+          <button class="back-btn"><a href="./index.html">Back</a></button>
+        </div>
+      </header>
+
+      <main class="results-page">
+        <div class="search-sidebar">
+            <h3 class="search-sidebar-title" style="align-items: center;">🔍 Find Results 🕒 View Previous Searches 🤝 Contribute to Community</h3>
+            
+            
+
+          <div class="search-input-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Translate from French into Ghomala"
+            />
+             
+          </div>
+
+          <div class="recent-searches" id="recent-searches">
+            <!-- Will be populated dynamically -->
+          </div>
+        </div>
+
+        <div class="results-container">
+          <h2 class="search-query">
+            Translation of &quot;<span id="query-text"></span>&quot; from
+            <span id="source-language-display">French</span> to
+            <span id="target-language-display">Ghomala</span>
+          </h2>
+
+          <div class="dictionary-info">
+            <h3>Translation Result:</h3>
+            <div id="translation-result" class="no-results-box">
+              <p>
+                Currently we have no translations for
+                <strong>&quot;<span id="no-results-query"></span>&quot;</strong>
+                in the dictionary, maybe you can add one? Make sure to check
+                automatic translation, translation memory or indirect
+                translations.
+              </p>
+            </div>
+          </div>
+
+          <div class="add-translation-section">
+            <button class="add-translation-btn" id="translate-btn">
+              ++ADD TRANSLATION
+            </button>
+          </div>
+
+          <div class="similar-phrases-section">
+            <h3 id="similar-phrases-title">
+              SIMILAR PHRASES WITH TRANSLATIONS
+            </h3>
+
+            <div class="similar-phrases-list" id="similar-phrases-list">
+              <!-- Will be populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          CamMT provides not only full translation experience
+          <span class="language-pair-footer">French - Ghomala</span>, but also
+          dictionaries for every existing pairs of languages - online and for
+          free.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Add this modal structure at the end of your body tag, before the scripts -->
+
+<!-- Translation contribution modal -->
+<div id="translation-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Add New Translation</h2>
+      <span class="modal-close">&times;</span>
+    </div>
+    
+    <div class="modal-body">
+      <div class="language-selector compact">
+        <div class="dropdown">
+          <button class="dropdown-btn" id="modal-source-lang">
+            <span id="modal-source-lang-text">French</span> <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content" id="modal-source-languages">
+            <a href="#" data-lang="french">French</a>
+            <a href="#" data-lang="english">English</a>
+          </div>
+        </div>
+
+        <button class="swap-btn"><i class="fas fa-exchange-alt"></i></button>
+
+        <div class="dropdown">
+          <button class="dropdown-btn" id="modal-target-lang">
+            <span id="modal-target-lang-text">Ghomala</span> <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content" id="modal-target-languages">
+            <a href="#" data-lang="ghomala">Ghomala</a>
+            <a href="#" data-lang="fulfulde">Fulfulde</a>
+          </div>
+        </div>
+      </div>
+
+      <form id="translationForm">
+        <!-- Source Text -->
+        <div class="form-group">
+          <label for="sourceText">Source Text:</label>
+          <div class="input-wrapper">
+            <input type="text" id="sourceText" name="sourceText" required>
+            <div class="input-controls">
+              <span class="char-count">0/500</span>
+              <button type="button" class="speak-btn" title="Speak"><i class="fas fa-volume-up"></i></button>
+              <button type="button" class="microphone-btn" title="Record"><i class="fas fa-microphone"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Target Text -->
+        <div class="form-group">
+          <label for="targetText">Target Text:</label>
+          <div class="input-wrapper">
+            <input type="text" id="targetText" name="targetText" required>
+            <div class="input-controls">
+              <span class="char-count">0/500</span>
+              <button type="button" class="speak-btn" title="Speak"><i class="fas fa-volume-up"></i></button>
+              <button type="button" class="microphone-btn" title="Record"><i class="fas fa-microphone"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example Sentence (Source) -->
+        <div class="form-group">
+          <label for="exampleSource">Example Sentence (Source):</label>
+          <div class="input-wrapper">
+            <input type="text" id="exampleSource" name="exampleSource">
+            <div class="input-controls">
+              <span class="char-count">0/500</span>
+              <button type="button" class="speak-btn" title="Speak"><i class="fas fa-volume-up"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example Sentence (Target) -->
+        <div class="form-group">
+          <label for="exampleTarget">Example Sentence (Target):</label>
+          <div class="input-wrapper">
+            <input type="text" id="exampleTarget" name="exampleTarget">
+            <div class="input-controls">
+              <span class="char-count">0/500</span>
+              <button type="button" class="speak-btn" title="Speak"><i class="fas fa-volume-up"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-translation-btn">Submit Translation</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="./results.js" type="module"></script>
+  </body>
+</html>
