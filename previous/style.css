@@ -13,24 +13,22 @@ a {
   color: #777;
 }
 body {
- 
-    background-color: #fff9ed;
-    margin: 0;
-    padding: 0;
-    height: auto;
-    background-image: url("img/bg.png");
-    /* background-size: contain; Adjust to 'contain' or 'cover' as needed */
-    /* You can also specify exact dimensions */
-    background-size: 100% 150%;  
-    /* background-size: 100% 148%; Example for 100% width and height */
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- 
+  background-color: #fff9ed;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  background-image: url("img/bg.png");
+  /* background-size: contain; Adjust to 'contain' or 'cover' as needed */
+  /* You can also specify exact dimensions */
+  background-size: 100% 150%;
+  /* background-size: 100% 148%; Example for 100% width and height */
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 /* User profile dropdown styling */
 .user-profile {
@@ -123,17 +121,15 @@ header {
 }
 
 button {
- 
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    margin: 0 5px;
-    color: #fc660e;     
-    font-size: 16px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
- 
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0 5px;
+  color: #fc660e;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
 button:hover {
@@ -141,12 +137,11 @@ button:hover {
 }
 
 .login-btn {
- 
-    background-color: #fc660e;
-    padding: 8px 15px;
-    font-weight: bold;
-    border: 1px solid #e5e7eb;
-    color: white; 
+  background-color: #fc660e;
+  padding: 8px 15px;
+  font-weight: bold;
+  border: 1px solid #e5e7eb;
+  color: white;
 }
 .back-btn {
   background-color: #f8f9fa;
@@ -274,8 +269,6 @@ button:hover {
   background: darkred;
 }
 
-
-
 .keyboard-container {
   position: fixed;
   bottom: 20px;
@@ -313,17 +306,27 @@ button:hover {
   width: 200px;
 }
 
-.key.shift, .key.control, .key.alt, .key.tab, .key.capslock, .key.return, .key.backspace {
+.key.shift,
+.key.control,
+.key.alt,
+.key.tab,
+.key.capslock,
+.key.return,
+.key.backspace {
   background: #bbb;
   color: white;
   font-weight: bold;
 }
 
-.key.shift:hover, .key.control:hover, .key.alt:hover, .key.tab:hover, .key.capslock:hover, .key.return:hover, .key.backspace:hover {
+.key.shift:hover,
+.key.control:hover,
+.key.alt:hover,
+.key.tab:hover,
+.key.capslock:hover,
+.key.return:hover,
+.key.backspace:hover {
   background: #999;
 }
-
-
 
 .translation-input {
   position: relative;
@@ -529,10 +532,6 @@ footer {
   background-color: #218838;
 }
 
-
-
-
-
 /* Add this CSS at the end of your results.css file */
 
 /* Modal Styles */
@@ -562,8 +561,14 @@ footer {
 }
 
 @keyframes slideIn {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .modal-header {

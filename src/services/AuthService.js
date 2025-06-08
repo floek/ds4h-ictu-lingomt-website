@@ -1,22 +1,22 @@
 // Firebase configuration and initialization
-import { initializeApp } from 'firebase/app';
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
-  onAuthStateChanged 
-} from 'firebase/auth';
+  onAuthStateChanged,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBG9hSiIewb3KKdl8mETiWFgbJ81KYqJDA",
-  authDomain: "cammt-b8746.firebaseapp.com",
-  projectId: "cammt-b8746",
-  storageBucket: "cammt-b8746.firebasestorage.app",
+  authDomain: "TransCAM-b8746.firebaseapp.com",
+  projectId: "TransCAM-b8746",
+  storageBucket: "TransCAM-b8746.firebasestorage.app",
   messagingSenderId: "735271738397",
   appId: "1:735271738397:web:20f5d2c18592efbe23faf4",
-  measurementId: "G-4VWQJBGPGJ"
+  measurementId: "G-4VWQJBGPGJ",
 };
 
 // Initialize Firebase
@@ -29,33 +29,37 @@ export class AuthService {
   }
 
   // Sign up new user
-  async signUp(email, password, username = '') {
+  async signUp(email, password, username = "") {
     try {
-      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        this.auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Update profile with username if provided
       if (username) {
         await updateProfile(user, {
-          displayName: username
+          displayName: username,
         });
       }
 
       // Store user info in localStorage
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userEmail', user.email);
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userEmail", user.email);
       if (username) {
-        localStorage.setItem('userName', username);
+        localStorage.setItem("userName", username);
       }
 
       return {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName || username,
-        photoURL: user.photoURL
+        photoURL: user.photoURL,
       };
     } catch (error) {
-      console.error('Sign up error:', error);
+      console.error("Sign up error:", error);
       throw this.handleAuthError(error);
     }
   }
@@ -63,27 +67,31 @@ export class AuthService {
   // Sign in existing user
   async signIn(email, password) {
     try {
-      const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        this.auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Store user info in localStorage
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userEmail', user.email);
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userEmail", user.email);
       if (user.displayName) {
-        localStorage.setItem('userName', user.displayName);
+        localStorage.setItem("userName", user.displayName);
       }
       if (user.photoURL) {
-        localStorage.setItem('userAvatar', user.photoURL);
+        localStorage.setItem("userAvatar", user.photoURL);
       }
 
       return {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
-        photoURL: user.photoURL
+        photoURL: user.photoURL,
       };
     } catch (error) {
-      console.error('Sign in error:', error);
+      console.error("Sign in error:", error);
       throw this.handleAuthError(error);
     }
   }
@@ -92,16 +100,16 @@ export class AuthService {
   async signOut() {
     try {
       await signOut(this.auth);
-      
+
       // Clear localStorage
-      localStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('userEmail');
-      localStorage.removeItem('userName');
-      localStorage.removeItem('userAvatar');
-      
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userAvatar");
+
       return true;
     } catch (error) {
-      console.error('Sign out error:', error);
+      console.error("Sign out error:", error);
       throw this.handleAuthError(error);
     }
   }
@@ -119,14 +127,16 @@ export class AuthService {
   // Handle Firebase auth errors
   handleAuthError(error) {
     const errorMessages = {
-      'auth/user-not-found': 'No user found with this email address.',
-      'auth/wrong-password': 'Incorrect password.',
-      'auth/email-already-in-use': 'This email is already registered.',
-      'auth/weak-password': 'Password should be at least 6 characters.',
-      'auth/invalid-email': 'Invalid email address.',
-      'auth/too-many-requests': 'Too many failed attempts. Please try again later.',
-      'auth/network-request-failed': 'Network error. Please check your connection.',
-      'auth/invalid-credential': 'Invalid email or password.'
+      "auth/user-not-found": "No user found with this email address.",
+      "auth/wrong-password": "Incorrect password.",
+      "auth/email-already-in-use": "This email is already registered.",
+      "auth/weak-password": "Password should be at least 6 characters.",
+      "auth/invalid-email": "Invalid email address.",
+      "auth/too-many-requests":
+        "Too many failed attempts. Please try again later.",
+      "auth/network-request-failed":
+        "Network error. Please check your connection.",
+      "auth/invalid-credential": "Invalid email or password.",
     };
 
     return new Error(errorMessages[error.code] || error.message);

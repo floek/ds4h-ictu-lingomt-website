@@ -1,7 +1,7 @@
-import React, { useEffect, useContext } from 'react';
-import { useCamera } from '../../hooks/useCamera';
-import { TranslationContext } from '../../contexts/TranslationContext';
-import { ImageRecognitionService } from '../../services/ImageRecognitionService';
+import React, { useEffect, useContext } from "react";
+import { useCamera } from "../../hooks/useCamera";
+import { TranslationContext } from "../../contexts/TranslationContext";
+import { ImageRecognitionService } from "../../services/ImageRecognitionService";
 
 const CameraModal = () => {
   const {
@@ -13,7 +13,7 @@ const CameraModal = () => {
     closeCamera,
     capturePhoto,
     retakePhoto,
-    usePhoto
+    usePhoto,
   } = useCamera();
 
   const { setInputText, sourceLanguage } = useContext(TranslationContext);
@@ -21,25 +21,25 @@ const CameraModal = () => {
 
   useEffect(() => {
     const handleEscapeKey = (event) => {
-      if (event.key === 'Escape' && isModalOpen) {
+      if (event.key === "Escape" && isModalOpen) {
         closeCamera();
       }
     };
 
-    document.addEventListener('keydown', handleEscapeKey);
+    document.addEventListener("keydown", handleEscapeKey);
     return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [isModalOpen, closeCamera]);
 
   const handleUsePhoto = async () => {
     const imageDataUrl = usePhoto();
-    
+
     if (imageDataUrl) {
       try {
         // Show loading state
-        setInputText('Analyzing image...');
-        
+        setInputText("Analyzing image...");
+
         // Recognize text in the image
         const recognizedText = await recognitionService.recognizeImage(
           imageDataUrl,
@@ -47,16 +47,21 @@ const CameraModal = () => {
         );
 
         // Set the recognized text in the input
-        if (recognizedText && recognizedText !== 'No text recognized in image') {
+        if (
+          recognizedText &&
+          recognizedText !== "No text recognized in image"
+        ) {
           setInputText(recognizedText);
         } else {
-          setInputText('');
-          alert('No text could be recognized in the image. Please try a different image.');
+          setInputText("");
+          alert(
+            "No text could be recognized in the image. Please try a different image."
+          );
         }
       } catch (error) {
-        console.error('Error analyzing image:', error);
-        setInputText('');
-        alert('Error analyzing image. Please try again.');
+        console.error("Error analyzing image:", error);
+        setInputText("");
+        alert("Error analyzing image. Please try again.");
       }
     }
   };
@@ -80,7 +85,7 @@ const CameraModal = () => {
         </div>
         <div className="modal-body">
           <p>
-            CamMT would like to access your camera to capture an image for
+            TransCAM would like to access your camera to capture an image for
             translation.
           </p>
           <div className="camera-container">
@@ -88,15 +93,15 @@ const CameraModal = () => {
               ref={videoRef}
               autoPlay
               playsInline
-              style={{ display: isCapturing ? 'none' : 'block' }}
+              style={{ display: isCapturing ? "none" : "block" }}
             />
             <canvas
               ref={canvasRef}
-              style={{ 
-                display: isCapturing ? 'block' : 'none',
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
+              style={{
+                display: isCapturing ? "block" : "none",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
               }}
             />
           </div>

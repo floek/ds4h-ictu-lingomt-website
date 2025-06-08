@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
-@import '@fortawesome/fontawesome-free/css/all.css';
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 /* Reset and global styles */
 * {
@@ -20,7 +20,7 @@ body {
   padding: 0;
   height: auto;
   background-image: url("/img/bg.png");
-  background-size: 100% 150%;  
+  background-size: 100% 150%;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -126,7 +126,7 @@ button {
   cursor: pointer;
   padding: 8px;
   margin: 0 5px;
-  color: #fc660e;     
+  color: #fc660e;
   font-size: 16px;
   border-radius: 4px;
   transition: background-color 0.2s;
@@ -141,7 +141,7 @@ button:hover {
   padding: 8px 15px;
   font-weight: bold;
   border: 1px solid #e5e7eb;
-  color: white; 
+  color: white;
 }
 
 .back-btn {
@@ -521,75 +521,75 @@ footer {
 /* Add this to your existing App.css */
 
 .keyboard-btn.active {
-    background-color: #fc660e;
-    color: white;
+  background-color: #fc660e;
+  color: white;
 }
 
 .keyboard-container {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .keyboard-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .keyboard-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-    cursor: move;
-    padding: 5px;
-    background: #f8f9fa;
-    border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  cursor: move;
+  padding: 5px;
+  background: #f8f9fa;
+  border-radius: 5px;
 }
 
 .close-keyboard {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .close-keyboard:hover {
-    background: darkred;
+  background: darkred;
 }
 
 .keyboard-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
 .key {
-    padding: 10px 15px;
-    margin: 3px;
-    font-size: 18px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #f8f8f8;
-    min-width: 40px;
-    text-align: center;
+  padding: 10px 15px;
+  margin: 3px;
+  font-size: 18px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f8f8f8;
+  min-width: 40px;
+  text-align: center;
 }
 
 .key:hover {
-    background: #ddd;
+  background: #ddd;
 }
 
 .key.space {
-    width: 200px;
+  width: 200px;
 }

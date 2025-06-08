@@ -1,16 +1,16 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
-import { AuthService } from '../services/AuthService';
-import './AuthPages.css';
+import React, { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+import { AuthService } from "../services/AuthService";
+import "./AuthPages.css";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState({ text: '', type: '' });
+  const [message, setMessage] = useState({ text: "", type: "" });
 
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,16 +18,16 @@ const LoginPage = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const showMessage = (text, type) => {
     setMessage({ text, type });
     setTimeout(() => {
-      setMessage({ text: '', type: '' });
+      setMessage({ text: "", type: "" });
     }, 5000);
   };
 
@@ -37,17 +37,17 @@ const LoginPage = () => {
 
     try {
       const user = await authService.signIn(formData.email, formData.password);
-      
+
       // Update auth context
       login(user.email);
-      
-      showMessage('Login successful! Redirecting...', 'success');
+
+      showMessage("Login successful! Redirecting...", "success");
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 1500);
     } catch (error) {
-      console.error('Login error:', error);
-      showMessage(error.message || 'Login failed. Please try again.', 'error');
+      console.error("Login error:", error);
+      showMessage(error.message || "Login failed. Please try again.", "error");
     } finally {
       setIsLoading(false);
     }
@@ -69,7 +69,7 @@ const LoginPage = () => {
 
       <main className="main">
         <div className="logo-container">
-          <h1 className="app-name">CamMT</h1>
+          <h1 className="app-name">TransCAM</h1>
           <p className="login-subtitle">Log in to your account</p>
         </div>
 
@@ -110,17 +110,13 @@ const LoginPage = () => {
             </div>
 
             <div className="button-group">
-              <button 
-                type="submit" 
-                className="login-btn"
-                disabled={isLoading}
-              >
+              <button type="submit" className="login-btn" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <i className="fas fa-spinner fa-spin"></i> Logging in...
                   </>
                 ) : (
-                  'Login'
+                  "Login"
                 )}
               </button>
               <Link to="/" className="continue-btn">
@@ -131,7 +127,7 @@ const LoginPage = () => {
 
           <div className="auth-footer">
             <p>
-              Don't have an account?{' '}
+              Don't have an account?{" "}
               <Link to="/auth/signup" className="signup-link">
                 Sign up
               </Link>
@@ -142,7 +138,7 @@ const LoginPage = () => {
 
       <footer>
         <p>
-          CamMT provides not only full translation experience intranslations,
+          TransCAM provides not only full translation experience intranslations,
           but also dictionaries for every existing pairs of languages - online
           and for free.
         </p>
