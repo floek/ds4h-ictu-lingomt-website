@@ -1,6 +1,6 @@
 // API Configuration
 const API_CONFIG = {
-  baseUrl: "https://group2-backend-nfk0.onrender.com/api", // Your Flask backend
+  baseUrl: "http://127.0.0.1:5000/api", // Your Flask backend
   endpoints: {
     translate: "/translate",
     languages: "/languages",

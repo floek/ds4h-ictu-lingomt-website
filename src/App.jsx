@@ -7,11 +7,13 @@ import HistoryPage from './pages/HistoryPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import './App.css';
+import { TranslationProvider } from './contexts/TranslationContext';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
+        <TranslationProvider>
         <div className="App">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -21,6 +23,7 @@ function App() {
             <Route path="/auth/signup" element={<SignupPage />} />
           </Routes>
         </div>
+        </TranslationProvider>
       </Router>
     </AuthProvider>
   );

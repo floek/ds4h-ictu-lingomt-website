@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useCamera } from "../../hooks/useCamera";
-import { TranslationContext } from "../../contexts/TranslationContext";
+import { useTranslation } from '../../contexts/TranslationContext';
 import { ImageRecognitionService } from "../../services/ImageRecognitionService";
 
 const CameraModal = () => {
@@ -16,7 +16,7 @@ const CameraModal = () => {
     usePhoto,
   } = useCamera();
 
-  const { setInputText, sourceLanguage } = useContext(TranslationContext);
+  const { setInputText, sourceLanguage } = useTranslation();
   const recognitionService = new ImageRecognitionService();
 
   useEffect(() => {

@@ -1,8 +1,16 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TranslationService } from '../services/TranslationService';
 
-export const TranslationContext = createContext();
+const TranslationContext = createContext();
+
+export const useTranslation = () => {
+  const context = useContext(TranslationContext);
+  if (!context) {
+    throw new Error('useTranslation must be used within a TranslationProvider');
+  }
+  return context;
+};
 
 export const TranslationProvider = ({ children }) => {
   const [sourceLanguage, setSourceLanguage] = useState({ code: 'french', name: 'French' });
@@ -57,7 +65,27 @@ export const TranslationProvider = ({ children }) => {
       navigate('/results');
     } catch (error) {
       console.error('Translation error:', error);
-      alert('An error occurred during translation. Please try again.');
+      
+      // Create a "not found" translation object for 404 errors
+      if (error.message.includes('404') || error.message.includes('No translation found')) {
+        const translation = {
+          id: Date.now(),
+          timestamp: new Date().toISOString(),
+          sourceLang: sourceLanguage.code,
+          targetLang: targetLanguage.code,
+          originalText: inputText,
+          translatedText: `No translation found for '${inputText}'`,
+          matchType: 'none',
+          suggestion: 'Consider contributing a translation',
+          isFavorite: false,
+        };
+
+        localStorage.setItem('currentTranslation', JSON.stringify(translation));
+        addToHistory(translation);
+        navigate('/results');
+      } else {
+        alert('An error occurred during translation. Please try again.');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -88,3 +116,6 @@ export const TranslationProvider = ({ children }) => {
     </TranslationContext.Provider>
   );
 };
+
+// Remove the problematic export at the end
+// export { TranslationContext };

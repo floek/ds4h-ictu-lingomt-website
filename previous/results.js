@@ -1,7 +1,7 @@
 // results.js - Frontend code for translation results page
 
 // Base URL for Flask API
-const FLASK_API_URL = "https://group2-backend-nfk0.onrender.com/api"; // Update this if your Flask server is hosted elsewhere
+const FLASK_API_URL = "http://127.0.0.1:5000/api"; // Update this if your Flask server is hosted elsewhere
 
 document.addEventListener("DOMContentLoaded", () => {
   // Get current translation from localStorage

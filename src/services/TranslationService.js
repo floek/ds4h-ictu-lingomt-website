@@ -1,14 +1,14 @@
 export class TranslationService {
   constructor() {
-    this.baseUrl = 'https://group2-backend-nfk0.onrender.com/api';
+    this.baseUrl = "http://127.0.0.1:5000/api";
   }
 
   async translate(sourceLang, targetLang, text) {
     try {
       const response = await fetch(`${this.baseUrl}/translate`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           sourceLang,
@@ -19,12 +19,12 @@ export class TranslationService {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Translation failed');
+        throw new Error(errorData.error || "Translation failed");
       }
 
       return await response.json();
     } catch (error) {
-      console.error('Translation API error:', error);
+      console.error("Translation API error:", error);
       throw error;
     }
   }

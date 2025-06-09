@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import { TranslationContext } from '../../contexts/TranslationContext';
+import { useTranslation } from '../../contexts/TranslationContext';
 
 const LanguageSelector = () => {
   const {
@@ -8,19 +8,23 @@ const LanguageSelector = () => {
     setSourceLanguage,
     setTargetLanguage,
     swapLanguages
-  } = useContext(TranslationContext);
+  } = useTranslation();
 
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
 
   const sourceLanguages = [
     { code: 'french', name: 'French' },
-    { code: 'english', name: 'English' }
+    { code: 'english', name: 'English' },
+    // { code: 'bafia', name: 'Bafia' },
+    // { code: 'ewondo', name: 'Ewondo' },
   ];
 
   const targetLanguages = [
     { code: 'ghomala', name: 'Ghomala' },
-    { code: 'fulfulde', name: 'Fulfulde' }
+    { code: 'fulfulde', name: 'Fulfulde' },
+    { code: 'bafia', name: 'Bafia' },
+    { code: 'ewondo', name: 'Ewondo' },
   ];
 
   useEffect(() => {

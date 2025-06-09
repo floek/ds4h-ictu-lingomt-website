@@ -1,9 +1,10 @@
 import React, { useState, useContext, useRef } from 'react';
-import { TranslationContext } from '../../contexts/TranslationContext';
+ 
 import ImagePreview from '../ImagePreview/ImagePreview';
 import VirtualKeyboard from '../VirtualKeyboard/VirtualKeyboard';
 import { useImageHandler } from '../../hooks/useImageHandler';
 import { useCamera } from '../../hooks/useCamera';
+import { useTranslation } from '../../contexts/TranslationContext';
 
 const TranslationInput = () => {
   const {
@@ -12,7 +13,7 @@ const TranslationInput = () => {
     sourceLanguage,
     targetLanguage,
     handleTranslation
-  } = useContext(TranslationContext);
+  } = useTranslation();
 
   const [showKeyboard, setShowKeyboard] = useState(false);
   const fileInputRef = useRef(null);
