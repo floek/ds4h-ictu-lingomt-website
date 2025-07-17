@@ -71,26 +71,20 @@ const LandingPage = () => {
       name: "Prof. Dr. Philippe Tamla",
       role: "Project Director",
       expertise: "Computational Linguistics, African Languages",
-      image: "/img/team/placeholder.jpg",
+      image: "/members/dr-ing-philipe.jpeg",
     },
     {
       name: "Stephane Donna",
       role: "AI/NLP Researcher",
       expertise: "Natural Language Processing, Machine Learning",
       image: "/img/team/placeholder.jpg",
+    }, 
+    {
+      name: "NDE HURICH DILAN",
+      role: "AI/NLP Researcher & Full Stack Dev",
+      expertise: "Natural Language Processing,Mobile Dev & Machine Learning",
+      image: "/img/team/placeholder.jpg",
     },
-    // {
-    //   name: 'Dr. Amadou Ba',
-    //   role: 'Language Specialist',
-    //   expertise: 'Fulfulde, Linguistic Annotation',
-    //   image: '/img/team/placeholder.jpg'
-    // },
-    // {
-    //   name: 'Marie Tchinda',
-    //   role: 'Software Engineer',
-    //   expertise: 'Full-stack Development, AI Integration',
-    //   image: '/img/team/placeholder.jpg'
-    // }
   ];
 
   return (
@@ -99,7 +93,7 @@ const LandingPage = () => {
       <header className="landing-header">
         <nav className="landing-nav">
           <div className="nav-brand">
-            <img src="/img/ds4h-logo.png" alt="DS4H-ICTU" className="logo" />
+            <img src="/ds4h-logo.jpeg" alt="DS4H-ICTU" className="logo" />
             <span className="brand-text">DS4H-ICTU</span>
           </div>
           <ul className="nav-links">
