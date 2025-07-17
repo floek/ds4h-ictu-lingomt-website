@@ -65,7 +65,7 @@ const ResultsPage = () => {
   };
 
   const handleNewTranslation = () => {
-    navigate('/');
+    navigate('/linguo-mt');
   };
 
   const handleRetranslate = () => {
@@ -79,7 +79,7 @@ const ResultsPage = () => {
         code: currentTranslation.targetLang, 
         name: getLanguageName(currentTranslation.targetLang) 
       });
-      navigate('/');
+      navigate('/linguo-mt');
     }
   };
 
@@ -243,7 +243,7 @@ const ResultsPage = () => {
 
   return (
     <div className="container">
-      <Header />
+      <Header isFromResult={true}/>
       
       <main className="main results-main">
        

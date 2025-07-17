@@ -3,7 +3,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import UserProfile from "../UserProfile/UserProfile";
 import { useNavigate, Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({isFromResult}) => {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header>
       <div className="nav-left">
-        <Link to="/" className="back-to-main">
+        <Link to={!isFromResult ? "/" : "/linguo-mt"} className="back-to-main">
           <i className="fas fa-arrow-left"></i> DS4H-ICTU
         </Link>
       </div>

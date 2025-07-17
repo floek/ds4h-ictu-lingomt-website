@@ -1,10 +1,60 @@
+import combinedDictionaries from './combined_dictionaries.json';
+
 export class TranslationService {
   constructor() {
     this.baseUrl = "https://mph61rz4ae.execute-api.us-east-1.amazonaws.com/conia_hack_prod_env";
+    this.dictionaries = combinedDictionaries;
+  }
+
+  // New method to perform local lookup
+  localLookup(sourceLang, targetLang, text) {
+    const searchText = text.trim().toLowerCase();
+    
+    // Create possible dictionary keys based on language combinations
+    const possibleKeys = [
+      `${sourceLang}_to_${targetLang}`,
+      `${sourceLang}-${targetLang}`,
+      `${targetLang}_to_${sourceLang}`,
+      `${targetLang}-${sourceLang}`
+    ];
+
+    // Search through possible dictionary combinations
+    for (const key of possibleKeys) {
+      if (this.dictionaries[key]) {
+        const dictionary = this.dictionaries[key];
+        
+        // Direct match (case-insensitive)
+        for (const [dictKey, dictValue] of Object.entries(dictionary)) {
+          if (dictKey.toLowerCase() === searchText) {
+            return {
+              translation: dictValue,
+              originalText: text,
+              message: "Local dictionary match found",
+              matchType: "exact",
+              fuzzyMatchScore: 1.0,
+              matchedWord: dictKey,
+              source: "local"
+            };
+          }
+        }
+      }
+    }
+
+    return null; // No match found
   }
 
   async translate(sourceLang, targetLang, text) {
     try {
+      // First, try local lookup
+      const localResult = this.localLookup(sourceLang, targetLang, text);
+      if (localResult) {
+        console.log("Translation found locally:", localResult);
+        return localResult;
+      }
+
+      // If no local match found, proceed with API call
+      console.log("No local match found, calling API...");
+      
       const response = await fetch(this.baseUrl, {
         method: "POST",
         headers: {
@@ -37,6 +87,7 @@ export class TranslationService {
           matchType: "exact", // You can adjust this based on your needs
           fuzzyMatchScore: null,
           matchedWord: null,
+          source: "api"
         };
       } else {
         // Handle case where translation array is empty or missing
@@ -81,7 +132,7 @@ export class TranslationService {
     }
   }
 
-  // Optional: Add a method for batch translations if needed in the future
+  // Updated batch translation method to use local lookup first
   async translateBatch(texts) {
     const translations = [];
     
@@ -99,5 +150,22 @@ export class TranslationService {
     }
     
     return translations;
+  }
+
+  // Optional: Method to get available dictionary keys for debugging
+  getAvailableDictionaries() {
+    return Object.keys(this.dictionaries);
+  }
+
+  // Optional: Method to check if a language pair is available locally
+  hasLocalSupport(sourceLang, targetLang) {
+    const possibleKeys = [
+      `${sourceLang}_to_${targetLang}`,
+      `${sourceLang}-${targetLang}`,
+      `${targetLang}_to_${sourceLang}`,
+      `${targetLang}-${sourceLang}`
+    ];
+
+    return possibleKeys.some(key => this.dictionaries[key]);
   }
 }
