@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { AuthService } from "../services/AuthService";
@@ -13,7 +13,7 @@ const SignupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
-  const { login } = useContext(AuthContext);
+  // const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const authService = new AuthService();
 
@@ -38,11 +38,12 @@ const SignupPage = () => {
     setIsLoading(true);
 
     try {
-      const user = await authService.signUp(
+       await authService.signUp(
         formData.email,
         formData.password,
         formData.username
       );
+
 
       showMessage("Signup successful! Redirecting to login...", "success");
       setTimeout(() => {
@@ -86,7 +87,7 @@ const SignupPage = () => {
 
       <main className="main">
         <div className="logo-container">
-          <h1 className="app-name">TransCAM</h1>
+          <h1 className="app-name">LinguoMT</h1>
           <p className="login-subtitle">Create an account</p>
         </div>
 
@@ -161,9 +162,9 @@ const SignupPage = () => {
 
       <footer>
         <p>
-          TransCAM provides not only full translation experience intranslations,
-          but also dictionaries for every existing pairs of languages - online
-          and for free.
+          LinguoMT provides not only full translation experience
+          intranslations, but also dictionaries for every existing pairs of
+          languages - online and for free.
         </p>
       </footer>
     </div>

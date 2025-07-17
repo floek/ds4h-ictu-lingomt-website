@@ -1,12 +1,13 @@
-import React, { useEffect, useContext } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect } from "react";
 import { useCamera } from "../../hooks/useCamera";
-import { useTranslation } from '../../contexts/TranslationContext';
+import { useTranslation } from "../../contexts/TranslationContext";
 import { ImageRecognitionService } from "../../services/ImageRecognitionService";
 
 const CameraModal = () => {
   const {
     isModalOpen,
-    capturedImage,
+    // capturedImage,
     isCapturing,
     videoRef,
     canvasRef,
@@ -85,7 +86,7 @@ const CameraModal = () => {
         </div>
         <div className="modal-body">
           <p>
-            TransCAM would like to access your camera to capture an image for
+            LinguoMT would like to access your camera to capture an image for
             translation.
           </p>
           <div className="camera-container">

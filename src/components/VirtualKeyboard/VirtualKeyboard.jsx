@@ -117,9 +117,9 @@ const VirtualKeyboard = ({ isVisible, onClose }) => {
   };
 
   // Handle cursor position updates from input field
-  const handleCursorChange = (e) => {
-    setCursorPosition(e.target.selectionStart || 0);
-  };
+  // const handleCursorChange = (e) => {
+  //   setCursorPosition(e.target.selectionStart || 0);
+  // };
 
   // Toggle keyboard size
   const toggleSize = () => {

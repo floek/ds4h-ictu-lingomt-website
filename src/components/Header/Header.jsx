@@ -19,7 +19,7 @@ const Header = () => {
     <header>
       <div className="nav-left">
         <Link to="/" className="back-to-main">
-          <i className="fas fa-arrow-left"></i> HACK US
+          <i className="fas fa-arrow-left"></i> DS4H-ICTU
         </Link>
       </div>
       <div className="nav-right">

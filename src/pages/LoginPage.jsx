@@ -69,7 +69,7 @@ const LoginPage = () => {
 
       <main className="main">
         <div className="logo-container">
-          <h1 className="app-name">TransCAM</h1>
+          <h1 className="app-name">LinguoMT</h1>
           <p className="login-subtitle">Log in to your account</p>
         </div>
 
@@ -138,9 +138,9 @@ const LoginPage = () => {
 
       <footer>
         <p>
-          TransCAM provides not only full translation experience intranslations,
-          but also dictionaries for every existing pairs of languages - online
-          and for free.
+          LinguoMT provides not only full translation experience
+          intranslations, but also dictionaries for every existing pairs of
+          languages - online and for free.
         </p>
       </footer>
     </div>

@@ -246,43 +246,7 @@ const ResultsPage = () => {
       <Header />
       
       <main className="main results-main">
-        {/* Sidebar for search and history */}
-        <div className="search-sidebar">
-          <h3 className="search-sidebar-title">
-            🔍 Find Results • 🕒 Previous Searches • 🤝 Contribute
-          </h3>
-          
-          <div className="search-input-container">
-            <input
-              type="text"
-              value={currentTranslation.originalText}
-              placeholder="Search for translations..."
-              readOnly
-              className="search-input-readonly"
-            />
-          </div>
-
-          <div className="recent-searches">
-            <h4>Recent Searches</h4>
-            {translationHistory.length > 0 ? (
-              translationHistory.map((item) => (
-                <div 
-                  key={item.id} 
-                  className="search-item"
-                  onClick={() => handleHistoryItemClick(item)}
-                >
-                  <div className="search-text">{item.originalText}</div>
-                  <div className="search-langs">
-                    {getLanguageName(item.sourceLang)} → {getLanguageName(item.targetLang)}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="no-recent">No recent searches</p>
-            )}
-          </div>
-        </div>
-
+       
         {/* Main results area */}
         <div className="results-container">
           <div className="results-header">
@@ -394,6 +358,44 @@ const ResultsPage = () => {
             </p>
           </div>
         </div>
+
+         {/* Sidebar for search and history */}
+        <div className="search-sidebar">
+          <h3 className="search-sidebar-title">
+            🔍 Find Results • 🕒 Previous Searches • 🤝 Contribute
+          </h3>
+          
+          <div className="search-input-container">
+            <input
+              type="text"
+              value={currentTranslation.originalText}
+              placeholder="Search for translations..."
+              readOnly
+              className="search-input-readonly"
+            />
+          </div>
+
+          <div className="recent-searches">
+            <h4>Recent Searches</h4>
+            {translationHistory.length > 0 ? (
+              translationHistory.map((item) => (
+                <div 
+                  key={item.id} 
+                  className="search-item"
+                  onClick={() => handleHistoryItemClick(item)}
+                >
+                  <div className="search-text">{item.originalText}</div>
+                  <div className="search-langs">
+                    {getLanguageName(item.sourceLang)} → {getLanguageName(item.targetLang)}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="no-recent">No recent searches</p>
+            )}
+          </div>
+        </div>
+
       </main>
 
       {/* Contribution Modal */}

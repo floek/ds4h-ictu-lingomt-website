@@ -7,8 +7,8 @@ const LandingPage = () => {
 
   const projects = [
     {
-      id: "TransCAM",
-      title: "TransCAM - Cameroon Machine Translation",
+      id: "linguo-mt",
+      title: "LinguoMT - Cameroon AI Machine Translation",
       description:
         "A revolutionary translation system for Cameroonian low-resource languages using advanced AI and NLP.",
       features: [
@@ -19,7 +19,7 @@ const LandingPage = () => {
       ],
       technologies: ["React", "AI/ML", "Computer Vision", "NLP"],
       status: "Active",
-      link: "/TransCAM",
+      link: "/linguo-mt",
     },
     {
       id: "corpus",
@@ -99,8 +99,8 @@ const LandingPage = () => {
       <header className="landing-header">
         <nav className="landing-nav">
           <div className="nav-brand">
-            <img src="/img/ds4h-logo.png" alt="HACK US" className="logo" />
-            <span className="brand-text">HACK US</span>
+            <img src="/img/ds4h-logo.png" alt="DS4H-ICTU" className="logo" />
+            <span className="brand-text">DS4H-ICTU</span>
           </div>
           <ul className="nav-links">
             <li>
@@ -119,8 +119,8 @@ const LandingPage = () => {
               <a href="#contact">Contact</a>
             </li>
             <li>
-              <Link to="/TransCAM" className="nav-cta">
-                Try TransCAM
+              <Link to="/linguo-mt" className="nav-cta">
+                Try LinguoMT
               </Link>
             </li>
           </ul>
@@ -138,7 +138,7 @@ const LandingPage = () => {
             <p className="hero-subtitle">
               Advancing Natural Language Processing and Machine Learning for
               African languages through innovative research and technology at
-              HACK US.
+              DS4H-ICTU.
             </p>
             <div className="hero-stats">
               <div className="stat">
@@ -155,9 +155,9 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="hero-actions">
-              <Link to="/TransCAM" className="btn btn-primary">
+              <Link to="/linguo-mt" className="btn btn-primary">
                 <i className="fas fa-language"></i>
-                Try TransCAM Translation
+                Try LinguoMT Translation
               </Link>
               <a href="#projects" className="btn btn-secondary">
                 Explore Projects
@@ -187,7 +187,7 @@ const LandingPage = () => {
       <section id="about" className="about">
         <div className="container">
           <div className="section-header">
-            <h2>About HACK US</h2>
+            <h2>About DS4H-ICTU</h2>
             <p>
               The Data Science for Health (DS4H) research group at ICTU is
               dedicated to developing innovative solutions for African
@@ -375,7 +375,7 @@ const LandingPage = () => {
                 Low-Resource Languages - A Case of African Languages
               </h4>
               <p className="publication-authors">
-                Prof. Dr. Philippe Tamla, Stephane Donna, Nde Dilan & al
+                Prof. Dr. Philippe Tamla, Stephane Donna, Nde Dilan & al
               </p>
               <p className="publication-venue">
                 Journal of African Language Technology, 2024
@@ -470,7 +470,7 @@ const LandingPage = () => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
-              <h4>HACK US</h4>
+              <h4>DS4H-ICTU</h4>
               <p>
                 Advancing African language technology through research and
                 innovation.
@@ -494,7 +494,7 @@ const LandingPage = () => {
               <h4>Projects</h4>
               <ul>
                 <li>
-                  <Link to="/TransCAM">TransCAM Translation</Link>
+                  <Link to="/linguo-mt">LinguoMT Translation</Link>
                 </li>
                 <li>
                   <a href="#">African Language Corpus</a>
@@ -531,7 +531,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 HACK US. All rights reserved.</p>
+            <p>&copy; 2024 DS4H-ICTU. All rights reserved.</p>
           </div>
         </div>
       </footer>

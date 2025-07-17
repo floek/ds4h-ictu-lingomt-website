@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useRef } from 'react';
  
 import ImagePreview from '../ImagePreview/ImagePreview';
 import VirtualKeyboard from '../VirtualKeyboard/VirtualKeyboard';

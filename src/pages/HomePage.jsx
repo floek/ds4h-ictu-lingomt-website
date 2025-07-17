@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import LanguageSelector from "../components/LanguageSelector/LanguageSelector";
 import TranslationInput from "../components/TranslationInput/TranslationInput";
@@ -7,7 +7,7 @@ import CameraModal from "../components/CameraModal/CameraModal";
 import { TranslationProvider } from "../contexts/TranslationContext";
 
 const HomePage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Handle retranslation data from history page
   useEffect(() => {
@@ -23,7 +23,7 @@ const HomePage = () => {
       <Layout>
         <main className="main">
           <div className="logo-container">
-            <h1 className="app-name">TransCAM</h1>
+            <h1 className="app-name">LinguoMT</h1>
             <h2 className="language-pair">
               <i className="fas fa-language"></i> Experience seamless
               translation:
@@ -39,7 +39,7 @@ const HomePage = () => {
 
         <footer>
           <p>
-            TransCAM provides not only full translation experience
+            LinguoMT provides not only full translation experience
             <span className="language-pair-footer">French - Ghomala</span>, but
             also dictionaries for every existing pairs of languages - online and
             for free.
