@@ -77,13 +77,13 @@ const LandingPage = () => {
       name: "Stephane Donna",
       role: "AI/NLP Researcher",
       expertise: "Natural Language Processing, Machine Learning",
-      image: "/img/team/placeholder.jpg",
+      image: "/members/default-user.png",
     }, 
     {
       name: "NDE HURICH DILAN",
       role: "AI/NLP Researcher & Full Stack Dev",
       expertise: "Natural Language Processing,Mobile Dev & Machine Learning",
-      image: "/img/team/placeholder.jpg",
+      image: "/members/default-user.png",
     },
   ];
 

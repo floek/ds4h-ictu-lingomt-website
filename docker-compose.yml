@@ -1,0 +1,7 @@
+services:
+  vite-app:
+    build: .
+    container_name: vite-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
